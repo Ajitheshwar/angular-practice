@@ -1,0 +1,43 @@
+<div class="w-50 mx-auto d-flex align-items-center pt-3">
+  <label for="color" class="form-label mb-0 me-3">Color</label>
+  <select name="color" class="form-control" [(ngModel)]="color">
+    <option value="">Clear</option>
+    <option value="yellow">Yellow</option>
+    <option value="orange">Orange</option>
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+  </select>
+
+</div>
+<div class="row mx-0">
+  <div class="col-md-6">
+    <app-product-widget [products]="salesProducts">
+      <h3 class="p-3 header" [appHighlight]="color" default="yellow">Upto 70% off | Electronics clearance store</h3>
+      <a href="#" class="link"> Visit Store...</a>
+    </app-product-widget>
+  </div>
+  <div class="col-md-6">
+    <app-product-widget [products]="topProducts">
+      <h3 class="p-3 header" [appHighlight]="color" default="red">Few Top Products that suites you</h3>
+      <a href="#" class="link">See more...</a>
+    </app-product-widget>
+  </div>
+</div>
+
+<div class="notification">
+  <form #ref="ngForm" class="d-flex mb-3" (ngSubmit)="ref.valid && updateTime(ref.value)">
+    <input type="number" name="delay" class="form-control" ngModel min="1000">
+    <button class="btn btn-success ms-3" type="submit">submit</button>
+  </form>
+  <div *appHideAfter="delay as time; then placeholder;counter as count" >
+    <h1>Temporary Content</h1>
+    This Content will be changed after {{time}} seconds. <br>
+    It disappears in {{count}} seconds
+  </div>
+</div>
+
+<ng-template #placeholder let-visibleAfter = "appHideAfter">
+  <h1>Hello</h1>
+  I am Ajitheshwar. I am visible after {{visibleAfter}} seconds.
+</ng-template>

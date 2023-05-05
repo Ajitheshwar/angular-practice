@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-evenly my-3">
+  <button class="btn btn-outline-primary px-3 py-1" (click)="updateSubject(1)">Subject</button>
+  <button class="btn btn-outline-primary px-3 py-1" (click)="updateSubject(2)">Behaviour Subject</button>
+  <button class="btn btn-outline-primary px-3 py-1" (click)="updateSubject(3)">Replay Subject</button>
+</div>
+<button class="ms-5 btn btn-success px-3 py-1 mb-3" (click)='addUser()'>Add User</button> ({{this.users.length}})
+
+<div class="d-flex mb-3">
+  <input type="text" class="form-control ms-3" #message>
+  <button class="mx-3 btn btn-info" (click)="sendMessage(message)">Send</button>
+</div>
+
+<div style="margin : 10px; padding : 20px; border : 1px solid black; border-radius : 20px">
+  <div *ngFor="let message of messages">
+    {{message}}
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<button class="btn btn-primary m-3"  (click)="router.navigateByUrl('/formData')">Back</button>
+<h1 class="text-center my-3">Displaying Addresss</h1>
+<form class="text-center ps-5">
+    <select name="role" id="role" class="form-control w-25" (change)="updateRole($event)">
+        <option value="">All</option>
+        <option value="Student">Student</option>
+        <option value="HOD">HOD</option>
+        <option value="Professor">Professor</option>
+    </select>
+</form>
+<div *ngFor="let address of addresses; index as i" class="container">
+    <app-display-address [addressChild]="address" *ngIf="role==='' || address.role===role">
+        <h2>Address {{i+1}} :</h2>
+        <h3>Role : {{address.role}}</h3>
+    </app-display-address>
+</div>
+<!-- <div *ngIf="false;else mytemp"> 
+
+</div>
+<ng-container *[ngTemplateOutlet]="mytemp">
+
+</ng-container>
+<ng-template #mytemp>
+    xyz
+</ng-template> -->
